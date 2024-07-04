@@ -12,4 +12,3 @@ apic login --accept-license -s "$apic_server_name" -r "$apic_realm" -u "$apic_us
 # apic draft-products:create --accept-license "$product".yaml --server "$apic_server_name" --org "$apic_org_name"
 echo "apic products publish $product.yaml -c $apic_catalog --server $apic_server_name --org $apic_org_name"
 apic products publish --accept-license "$product".yaml -c "$apic_catalog" --server "$apic_server_name" --org "$apic_org_name"
-
