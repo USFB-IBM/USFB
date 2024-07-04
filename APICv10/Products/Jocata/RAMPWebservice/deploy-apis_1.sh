@@ -3,7 +3,7 @@
 
 echo "Usage : deploy-apis.sh to publish apis"
 
-product=rampwebservice_1.0.0
+product=ramp-auto-product101
 
 echo "Product name is $product"
 
