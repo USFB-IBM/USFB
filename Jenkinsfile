@@ -30,40 +30,33 @@ pipeline {
 			//string(name: 'event_publishing_endpoint', defaultValue: 'EndPoint_Not_Aailable', description: 'Event Publishing URL')
     		//string(name: 'sonar_project_name', defaultValue: 'This_is_my_FSCM_POC_project', description: 'Sonar Project Name')
 			
-    	   
+    	  
 		
         }
         environment {
             branch_name="${params.git_branchname}"
             gitrepourl = "${params.giturl}/${params.gitorgname}/${params.git_reponame}.git"
+            apic_credential = "apic-credential"
+            apic_server_name="https://localhost:2000"
+            apic_org_name="localtest"
+            apic_realm='provider/default-idp-2'
+			apic_catalog="sandbox"
+			PATH="C:\\cygwin64\\bin;$PATH"
         }
     stages {
         stage('Checkout') {
             steps {
                 // Checkout the source code from the Git repository
                 git branch: "${branch_name}", url: "${gitrepourl}"
-                //dir('Products/Jocata/RAMPWebservice'){
-                //sh '"deploy-apis.sh"'
-                //}
-                //echo "API Deployment"
-                //deployAPI();
+                dir('APICv10/Products/Jocata/RAMPWebservice'){
+                    echo "API Deployment"
+            		withCredentials([usernamePassword(credentialsId: 'apic-credential',
+            		      usernameVariable: 'apic_username',
+            			  passwordVariable: 'apic_password')]) {
+				    bat "\"C:\\cygwin64\\bin\\sh.exe\" deploy-apis_1.sh"
+	            	}   
                 }
             }
-			/*stage('Deploy API') {
-            steps {
-                script {
-                    dir('Products/Jocata/RAMPWebservice') {
-                        deployAPI()
-                    }
-                }
-            }
-        }*/
         }
-		}
-	/*def deployAPI(){
-		withCredentials([usernamePassword(credentialsId: 'apic-credential',
-			  passwordVariable: 'apic_password',
-			  usernameVariable: 'apic_username')]) {
-				 sh './deploy-apis.sh'
-		} //end of withCredentials	
-	}*/
+    }
+}
