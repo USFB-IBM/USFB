@@ -53,7 +53,7 @@ pipeline {
             		withCredentials([usernamePassword(credentialsId: 'apic-credential',
             		      usernameVariable: 'apic_username',
             			  passwordVariable: 'apic_password')]) {
-				    echo "Publishing APIs to portal"
+				    echo "Publishing APIs"
 				    bat "\"C:\\cygwin64\\bin\\sh.exe\" deploy-apis_1.sh"
 	            	}   
                 }
