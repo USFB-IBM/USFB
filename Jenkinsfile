@@ -12,7 +12,6 @@ pipeline {
     		string(name: 'giturl', defaultValue: 'https://github.com', description: 'Git URL of repository.')
     		string(name: 'gitorgname', defaultValue: 'USFB-IBM', description: 'Git Organization')
     		string(name: 'git_reponame', defaultValue: 'USFB', description: 'Git repository')
-    		//string(name: 'git_branchname', defaultValue: 'master', description: 'Git Branch Name')
     		choice(name: 'git_branchname',
 		          choices: 'dev\nsit\nuat\npre-prod\nprod\ndr',
 		              description: 'Git Branch Names - dev, sit, uat, pre-prod, prod, dr')
