@@ -1,13 +1,10 @@
 pipeline {
     agent any
     parameters {
-    		//string(name: 'devops_stage', defaultValue: 'buildandpackage', description: 'DevOps Stage - buildandpackage, SIT, UAT')
-    		//string(name: 'alm_level', defaultValue: 'Feature', description: 'Application Life Cycle Level - Feature, Testing, Release')
-    		//string(name: 'target_environment', defaultValue: 'Non-Prod', description: 'Target Environment - Prod, Non-Prod')
     		choice(name: 'alm_level',
 		          choices: 'Feature\nRelease',
 		              description: 'Application Life Cycle Level - Feature, Release')
-	    choice(name: 'devops_stage',
+	    	choice(name: 'devops_stage',
 	                      choices: 'buildandpackage\nDEV\nSIT\nUAT\nPRE-PROD\nPROD\nDR',
 	                      description: 'DevOps Stages - buildandpackage, DEV, SIT, UAT, PRE-PROD, PROD, DR')
     		
