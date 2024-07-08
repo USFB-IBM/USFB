@@ -17,12 +17,6 @@ pipeline {
 		          choices: 'dev\nsit\nuat\npre-prod\nprod\ndr',
 		              description: 'Git Branch Names - dev, sit, uat, pre-prod, prod, dr')
         	string(name: 'sourcedir', defaultValue: 'APICv10', description:'Source Directory.')
-			
-			//string(name: 'event_publishing_endpoint', defaultValue: 'EndPoint_Not_Aailable', description: 'Event Publishing URL')
-    		//string(name: 'sonar_project_name', defaultValue: 'This_is_my_FSCM_POC_project', description: 'Sonar Project Name')
-			
-    	  
-		
         }
         environment {
             branch_name="${params.git_branchname}"
