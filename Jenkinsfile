@@ -9,12 +9,6 @@ pipeline {
 	                      description: 'DevOps Stages - buildandpackage, DEV, SIT, UAT, PRE-PROD, PROD, DR')
     		
     		string(name: 'product',   defaultValue: 'CBS', description: 'No Product Specified')
-			
-			//below parameters not required for IT deployment.
-    		//string(name: 'clientid',  defaultValue: 'MR42', description: 'Client Id for which the build will be processed')
-    		//string(name: 'project_id', defaultValue: 'Project_NA', description: 'Project ID')
-    		//string(name: 'build_initiating_user_id', defaultValue: 'NA_user_id', description: 'Buld Initiating User ID')
-    		
     		string(name: 'giturl', defaultValue: 'https://github.com', description: 'Git URL of repository.')
     		string(name: 'gitorgname', defaultValue: 'USFB-IBM', description: 'Git Organization')
     		string(name: 'git_reponame', defaultValue: 'USFB', description: 'Git repository')
