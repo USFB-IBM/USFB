@@ -33,7 +33,7 @@ pipeline {
                 // Checkout the source code from the Git repository
                 git branch: "${branch_name}", url: "${gitrepourl}"
                 dir('APICv10/Products/Jocata/RAMPWebservice'){
-                    echo "Performing API Deployment"
+                    echo "API Deployment"
             		withCredentials([usernamePassword(credentialsId: 'apic-credential',
             		      usernameVariable: 'apic_username',
             			  passwordVariable: 'apic_password')]) {
