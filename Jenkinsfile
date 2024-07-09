@@ -6,8 +6,7 @@ pipeline {
 		              description: 'Application Life Cycle Level - Feature, Release')
 	    	choice(name: 'devops_stage',
 	                      choices: 'buildandpackage\nDEV\nSIT\nUAT\nPRE-PROD\nPROD\nDR',
-	                      description: 'DevOps Stages - buildandpackage, DEV, SIT, UAT, PRE-PROD, PROD, DR')
-    		
+	                      description: 'DevOps Stages - buildandpackage, DEV, SIT, UAT, PRE-PROD, PROD, DR')  		
     		string(name: 'product',   defaultValue: 'CBS', description: 'No Product Specified')
     		string(name: 'giturl', defaultValue: 'https://github.com', description: 'Git URL of repository.')
     		string(name: 'gitorgname', defaultValue: 'USFB-IBM', description: 'Git Organization')
@@ -42,6 +41,21 @@ pipeline {
 	            	}   
                 }
             }
+			/*stage('Deploy API') {
+            steps {
+                script {
+                    dir('Products/Jocata/RAMPWebservice') {
+                        deployAPI()
+                    }
+                }
+            }
+        }*/
         }
-    }
-}
+		}
+	/*def deployAPI(){
+		withCredentials([usernamePassword(credentialsId: 'apic-credential',
+			  passwordVariable: 'apic_password',
+			  usernameVariable: 'apic_username')]) {
+				 sh './deploy-apis.sh'
+		} //end of withCredentials	
+	}*/
