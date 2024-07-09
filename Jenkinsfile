@@ -47,6 +47,7 @@ pipeline {
 				    script{
 					    
 						   //echo "alm_level=${params.alm_level}, devops_stage=${params.devops_stage}, product_name=${params.product}-${params.client_code}, clientid=${params.client_code}, clientid=${params.client_code}, repo_name=${params.git_reponame}, base_build_number=${params.base_build_number}"
+					    //displaying build name
 					    echo currentBuild.displayName
 					    bat "\"C:\\cygwin64\\bin\\sh.exe\" -c 'mkdir -pv ${builddir}'"
 						dir(builddir) {
