@@ -7,7 +7,6 @@ pipeline {
 			choice(name: 'devops_stage',
 	                      choices: 'DEV\nSIT\nUAT\nPRE-PROD\nPROD\nDR',
 	                      description: 'DevOps Stages - DEV, SIT, UAT, PRE-PROD, PROD, DR')
-    		
     		string(name: 'product',   defaultValue: 'CBS', description: 'No Product Specified')
     		
     		string(name: 'giturl', defaultValue: 'https://github.com', description: 'Git URL of repository.')
@@ -18,10 +17,7 @@ pipeline {
 		          choices: 'dev\nsit\nuat\npre-prod\nprod\ndr',
 		              description: 'Git Branch Names - dev, sit, uat, pre-prod, prod, dr')
         	string(name: 'sourcedir', defaultValue: 'APICv10', description:'Source Directory.')
-			
-    	  
-		
-        }
+		        }
         environment {
 			alm_level = "${params.alm_level}"
             branch_name="${params.git_branchname}"
@@ -36,7 +32,7 @@ pipeline {
 			PATH="C:\\cygwin64\\bin;$PATH"
         }
     stages {
-		
+      
 		stage('Pipeline\nInitialization') {
 				steps {
 					script{
