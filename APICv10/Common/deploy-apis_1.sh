@@ -5,6 +5,9 @@ echo "Usage : deploy-apis.sh to publish apis"
 
 product=ibm-auto-product_1.0.0
 
+echo "Workspace directory: $WORKSPACE
+cd $WORKSPACE
+
 echo "Product name is $product"
 export PATH=$PATH:"C:\Users\004DPT744\Downloads\USFB-Install\APIC"
 apic login --accept-license -s "$apic_server_name" -r "$apic_realm" -u "$apic_username" -p "$apic_password"
