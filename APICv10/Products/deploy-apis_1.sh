@@ -6,7 +6,7 @@ echo "Usage : deploy-apis.sh to publish apis"
 product=ibm-auto-product_1.0.0
 
 echo "Workspace directory: $WORKSPACE"
-cd $WORKSPACE
+cd $WORKSPACE/$builddir/$clientdir/$vendor_name/$API_name
 
 echo "Product name is $product"
 
