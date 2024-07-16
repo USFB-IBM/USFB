@@ -1,0 +1,58 @@
+swagger: '2.0'
+info:
+  title: ecollectionPAVVNLcreditConfirmationSIT
+  x-ibm-name: ecollectionpavvnlcreditconfirmationsit
+  version: 1.0.1
+  description: Yaml For CreditConfirmation
+  termsOfService: http://termsOfService-placeholder
+schemes:
+  - https
+basePath: /api/ecollection/mis/sit/PAVVNL
+produces:
+  - application/xml
+consumes:
+  - text/xml
+securityDefinitions: {}
+x-ibm-configuration:
+  gateway: datapower-gateway
+  type: rest
+  phase: realized
+  enforced: true
+  testable: true
+  cors:
+    enabled: true
+  assembly:
+    execute:
+      - proxy:
+          version: 1.0.0
+          title: proxy
+          timeout: 60
+          verb: keep
+          cache-response: protocol
+          cache-ttl: 900
+          target-url: >-
+            https://puvnltest.uppclonline.com/RMSTEST/ProxyServices/ThirdParty/ThirdPartySyncPS
+      - activity-log:
+          version: 1.0.0
+          title: activity-log
+          content: payload
+          error-content: payload
+  application-authentication: {}
+  properties:
+    target-url:
+      value: http://example.com/operation-name
+      description: The URL of the target service
+      encoded: false
+paths:
+  /creditConfirmation:
+    post:
+      parameters:
+        - name: ReqBody
+          in: body
+          required: false
+          schema:
+            type: object
+      responses:
+        '200':
+          description: 200 OK
+security: []
