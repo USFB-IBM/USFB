@@ -32,7 +32,7 @@ x-ibm-configuration:
       description: The URL of the target service
       encoded: false
   activity-log:
-    enabled: true
+    enabled: false
     success-content: activity
     error-content: payload
   application-authentication: {}
