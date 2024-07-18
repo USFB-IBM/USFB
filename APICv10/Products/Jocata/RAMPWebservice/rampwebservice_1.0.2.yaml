@@ -36,7 +36,7 @@ x-ibm-configuration:
     success-content: activity
     error-content: payload
   application-authentication: {}
-basePath: /ibm
+basePath: /ibm1
 paths:
   /:
     get:
