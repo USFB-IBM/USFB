@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
-  title: ibm
-  x-ibm-name: ibm
+  title: rampwebservice
+  x-ibm-name: rampwebservice
   version: 1.0.2
 x-ibm-configuration:
   cors:
